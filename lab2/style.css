@@ -11,16 +11,16 @@
   color: black;
 }
 
+html,body,p {
+    padding: 0%;
+    margin: 0%;
+    height: 100%;
+}
+
 body{
   padding: 0;
-}
-
-html{
-  padding: 0;
-}
-
-p{
-  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 header{
@@ -106,14 +106,11 @@ article p{
 }
 
 footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   height: 100px;
   background-color: lightgrey;
   border-top: 2px solid;
-  margin-top: 15px;
+  padding-top: 15px;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
