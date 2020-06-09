@@ -1,0 +1,18 @@
+body { }
+
+h1 {
+    text-align: center;
+}
+
+content {
+    border: 2px solid;
+    padding: 15px;
+    display: block;
+	margin: auto;
+	width: 50%;
+    text-align: center;
+}
+
+.to-do {
+    padding: 5px;
+}
