@@ -24,11 +24,20 @@ function ToDoList(props) {
             handleChange={item.handleChange}/>)
     }
     
-    return (
-        <div>
+   if (todoItems.length == 0) {
+       return (
+        <div> 
+            {"Nothing to do..."}
+        </div>
+    ) 
+   }
+   else {
+       return (
+        <div> 
             {todoItems}
         </div>
-    )    
+    ) 
+   }
     
 }
 
