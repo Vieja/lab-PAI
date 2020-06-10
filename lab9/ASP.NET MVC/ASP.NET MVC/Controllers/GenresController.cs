@@ -17,22 +17,14 @@ namespace ASP.NET_MVC.Controllers
         // GET: Genres
         public ActionResult Index()
         {
-            return View(db.Genres.ToList());
-        }
-
-        // GET: Genres/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            if (Request.IsAjaxRequest())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return PartialView("_GenresList", db.Genres.ToList());
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            else
             {
-                return HttpNotFound();
+                return View(db.Genres.ToList());
             }
-            return View(genre);
         }
 
         // GET: Genres/Create
@@ -89,25 +81,9 @@ namespace ASP.NET_MVC.Controllers
             return View(genre);
         }
 
-        // GET: Genres/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
-            {
-                return HttpNotFound();
-            }
-            return View(genre);
-        }
-
         // POST: Genres/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpDelete, ActionName("Delete")]
+        public ActionResult Delete(int id)
         {
             Genre genre = db.Genres.Find(id);
             db.Genres.Remove(genre);
